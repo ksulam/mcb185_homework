@@ -1,0 +1,19 @@
+Thu Jan 18 09:54:52 PST 2024
+USER:
+katelynlam
+HOME:
+/Users/katelynlam
+SHELL:
+/bin/zsh
+PWD:
+/Users/katelynlam/Code/mcb185_homework
+PATH:
+/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+Darwin campus-008-130.ucdavis.edu 22.5.0 Darwin Kernel Version 22.5.0: Thu Jun  8 22:22:20 PDT 2023; root:xnu-8796.121.3~7/RELEASE_ARM64_T6000 arm64
+Python 3.10.1
+/Users/katelynlam/Code
+/Users/katelynlam/Code/mcb185_homework
+/Users/katelynlam/Code/mcb185_homework/.git
+/Users/katelynlam/Code/MCB185
+/Users/katelynlam/Code/MCB185/.git
+/Users/katelynlam/Code/MCB185/data
