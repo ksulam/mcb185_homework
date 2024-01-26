@@ -4,7 +4,6 @@ def temp(A,C,T,G):
 		Tm = (A + T) * 2 + (G + C) * 4
 	else:
 		Tm = 64.9 + 41 * (G + C - 16.4) / (A + T + G + C)
-	
 	return Tm
 
 print(temp(1, 2, 3, 4))

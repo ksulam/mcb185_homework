@@ -1,4 +1,5 @@
 def performance(tp, tn, fp, fn):
+	
 	total = tp + tn + fp + fn
 	assert(total > 0) 	# denominator cannot be zero 
 	
