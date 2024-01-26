@@ -1,18 +1,18 @@
 import math
 
 def quadratic(a,b,c):
-	d = (b**2) - (4*a*c) 
+	d = (b ** 2) - (4 * a * c) 
 	
 	if d < 0:  
 		return None, None
 	
 	if d == 0: # when d=0, only get 1 solution
-		x = (-b+math.sqrt(d)) / (2*a)
+		x = (-b+math.sqrt(d)) / (2 * a)
 		return x, x 
 
 	else:
-		x2 = (-b+math.sqrt(d)) / (2*a)
-		x1 = (-b-math.sqrt(d)) / (2*a)
+		x2 = (-b + math.sqrt(d)) / (2 * a)
+		x1 = (-b - math.sqrt(d)) / (2 * a)
 		return x1, x2
 
 # testing function		
