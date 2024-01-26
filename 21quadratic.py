@@ -7,7 +7,7 @@ def quadratic(a,b,c):
 		return None, None
 	
 	if d == 0: # when d=0, only get 1 solution
-		x = (-b+math.sqrt(d)) / (2 * a)
+		x = (-b + math.sqrt(d)) / (2 * a)
 		return x, x 
 
 	else:
