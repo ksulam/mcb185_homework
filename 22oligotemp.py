@@ -1,4 +1,4 @@
-def temp(A,C,T,G):
+def temp(A, C, T, G):
 	
 	if A+C+T+G <= 13: 
 		Tm = (A + T) * 2 + (G + C) * 4
