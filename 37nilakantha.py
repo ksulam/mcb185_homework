@@ -1,5 +1,3 @@
-import math 
-
 def nilakantha(number):
 	pi = 3.0
 	sign = 1
