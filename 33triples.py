@@ -5,8 +5,8 @@ def is_perfect_square(n):
 	return False
 
 def isinteger(n):
-    if n == n // 1: return True
-    return False
+	if n == n // 1: return True
+	return False
 count = 0
     	
 for a in range(1, 101): 
