@@ -1,16 +1,13 @@
 def factorial(n):
-	if n == 0 or n == 1:
+	if n == 0: 
 		return 1
-		
-	else: 
-		return n * factorial(n - 1)
-		
-def solve(n, k):
-	if k < 0 or k > n:
-		return 0
-	else:
-		return factorial(n) // (factorial(k) * factorial(n - k))
+	fac = 1
+	for i in range (1, n + 1):
+		fac = fac * i 
+	return fac 
 
-print(solve(10, 2))
-print(solve(31, 4))
-print(solve(12, 3))
+def nchoosek(n, k):
+	return factorial(n) / (factorial(k) * factorial(n - k))
+		
+print(nchoosek(5, 3))
+print(nchoosek(10, 2))
