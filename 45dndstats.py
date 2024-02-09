@@ -19,7 +19,7 @@ for i in range(rolls):
 	for j in range(3):
 		d = random.randint(1, 6)
 		if d == 1:
-			d = random.randint(1,6)
+			d = random.randint(1, 6)
 		score += d	
 	total_2 += score 
 print('3D6r1 Average:', total_2 / rolls)
