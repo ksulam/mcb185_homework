@@ -1,10 +1,11 @@
+# Code Output for Homeworks 45-47 #
+
 ## 45dndstats.py ##
 ```
 3D6 Average: 10.48459
 3D6r1 Average: 11.75118
 3d6x2 Average: 13.42131
 4dr1 Averge: 11.89153
-
 ```
 
 ## 46savingthrows.py ##
