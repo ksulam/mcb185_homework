@@ -2,17 +2,17 @@
 
 ## 45dndstats.py ##
 ### DND Dice Statistics Probabilities ###
-```
+
 - 3D6 Average: 10.48459
 - 3D6r1 Average: 11.75118
 - 3d6x2 Average: 13.42131
 - 4dr1 Averge: 11.89153
-```
+
 
 ## 46savingthrows.py ##
 x
 ### Saving Throw Probabilities ###
-``` 
+ 
 | DC   level        | probability of success |
 |:------------------|-----------------------:|
 | 5    normal       |         0.7493         |
@@ -34,7 +34,6 @@ x
 | 15   disadvantage |         0.0636         |
 
 
-```
 
 ## 47deathsaves.py ##
 
