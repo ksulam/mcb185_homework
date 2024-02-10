@@ -1,10 +1,7 @@
 import random
-import math
 
 insidecount = 0
 outsidecount = 0
-limit = 100000
-origin = 0
 total = 0 
 
 while True:
