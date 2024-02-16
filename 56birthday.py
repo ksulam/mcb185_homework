@@ -8,23 +8,21 @@ trials = int(sys.argv[1])
 days = int(sys.argv[2])
 people = int(sys.argv[3])
 
-matching = 0 
+bdaymatch = 0 
 
-for trial in range(trials): 
-	
+for i in range(trials):
 	bdays = []
-	for i in range(people):
+	
+	for j in range(people):
 		date = random.randint(1, days)
-		bdays.append(date)
-	
-	shared = False 
-	bdays.sort() # sort bdays numerically 
-	for i in range(1, len(bdays)):
-		if bdays[i - 1] == bdays[i]:
-			shared = True
-			break   # stop when first bday match is found 
-	
-	if shared == True: matching += 1 # add to count when shared is true 
-	
+		bdays.append(date) # generate class bdays 
 		
-print(matching / trials)
+	shared = False
+	for i in range(len(bdays)): 
+		for j in range(i + 1, len(bdays)):
+			if bdays[i] == bdays[j]:
+				shared = True
+				
+	if shared: bdaymatch += 1 #when find a bday match break loop and add to count
+
+print(bdaymatch / trials)
