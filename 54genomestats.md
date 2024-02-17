@@ -1,4 +1,4 @@
-# 54.genomestats #
+# 54genomestats.md #
 
 
 | Genome         | Type |  N   | Min |  Max  | Mean | Stdv | Med  | Sum   |
