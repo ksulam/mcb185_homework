@@ -5,8 +5,6 @@ trials = int(sys.argv[1])
 days = int(sys.argv[2])
 people = int(sys.argv[3])
 
-
-
 bdaymatch = 0
 
 for i in range(trials):
