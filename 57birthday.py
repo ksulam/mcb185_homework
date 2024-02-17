@@ -17,8 +17,8 @@ for i in range(trials):
 		calendar[date] += 1 
 
 	shared = False
-	for count in calendar:
-		if count >= 2:
+	for x in calendar:
+		if x >= 2:
 			shared = True
 			break
 				
