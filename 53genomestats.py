@@ -7,7 +7,7 @@ gffpath = sys.argv[1]
 feature = sys.argv[2]
 #fp = gzip.open("A.thaliana.gff.gz", "rt")
 
-featurecount = 0
+countlengths = 0
 lengths = []
 
 with gzip.open(gffpath, 'rt') as fp:
@@ -15,13 +15,13 @@ with gzip.open(gffpath, 'rt') as fp:
     	words = line.split()
     	#print(line)
     	if words[2] == feature: 
-    		featurecount += 1 #count
+    		countlengths += 1 #count
     		beg = int(words[3])
     		end = int(words[4])
     		lengths.append(end - beg + 1)  
 
 # count 
-print("Count:", featurecount)
+print("Count:", countlengths)
 
 # min, max
 def minmax(vals):
@@ -45,10 +45,11 @@ mean = sumlengths / len(lengths)
 
 print("Mean:", mean)		
 
-# standard deviation  sqrt(sum of (x- mean)^2 / (n))
+
+# standard deviation  sqrt(sum of (x- mean)^2 / n)
 sumofsquareddiff = 0
 for val in lengths:
-	sumofsquareddiff += (val - mean) ** 2
+	sumofsquareddiff += ((val - mean) ** 2)
 
 stdev = math.sqrt(sumofsquareddiff / len(lengths)) 
 
