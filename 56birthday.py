@@ -23,6 +23,7 @@ for i in range(trials):
 			if bdays[i] == bdays[j]:
 				shared = True
 				
-	if shared: bdaymatch += 1 #when find a bday match break loop and add to count
+	if shared: 
+		bdaymatch += 1 #when find a bday match break loop and add to count
 
 print(bdaymatch / trials)

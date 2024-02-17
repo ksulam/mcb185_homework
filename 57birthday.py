@@ -22,6 +22,7 @@ for i in range(trials):
 			shared = True
 			break
 				
-	if shared: bdaymatch += 1 #when find a bday match break loop and add to count
+	if shared: 
+		bdaymatch += 1 #when find a bday match break loop and add to count
 
 print(bdaymatch / trials)
