@@ -3,10 +3,13 @@
 ## 45dndstats.py ##
 ### DND Dice Statistics Probabilities ###
 
-- 3D6 Average: 10.48459
-- 3D6r1 Average: 11.75118
-- 3d6x2 Average: 13.42131
-- 4dr1 Averge: 11.89153
+| Dice Type         | Probabilities          |
+|-------------------|------------------------|
+| 3D6               |         10.48459       |
+| 3D6r1             |         11.75118       |
+| 3d6x2             |       13.42131         |
+| 4dr1              |        11.89153        |
+
 
 
 ## 46savingthrows.py ##
