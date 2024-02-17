@@ -18,9 +18,9 @@ for i in range(trials):
 		bdays.append(date) # generate class bdays 
 		
 	shared = False
-	for i in range(len(bdays)): 
-		for j in range(i + 1, len(bdays)):
-			if bdays[i] == bdays[j]:
+	for d1 in range(len(bdays)): 
+		for d2 in range(d1 + 1, len(bdays)):
+			if bdays[d1] == bdays[d2]:
 				shared = True
 				
 	if shared: 
