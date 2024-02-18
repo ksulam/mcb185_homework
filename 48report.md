@@ -17,7 +17,7 @@
 ### Saving Throw Probabilities ###
 
 
-| DC \ Advantage |  Normal  |  Advantage  | Disadvantage |
+| DC vs Advantage|  Normal  |  Advantage  | Disadvantage |
 |----------------|------------------------|--------------|
 | 5              |  0.7493  |    0.9379   |     0.5670   |
 | 10             |  0.5079  |    0.7492   |     0.2458   |
