@@ -2,7 +2,6 @@ import random
 import math 
 
 insidecount = 0
-outsidecount = 0
 total = 0 
 
 while True:
@@ -17,6 +16,5 @@ while True:
 	ratio = 4 * insidecount / total
 	print(ratio)
 
-  
 
 # gen random int
