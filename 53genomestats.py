@@ -5,20 +5,18 @@ import math
 gffpath = sys.argv[1]
 feature = sys.argv[2]
 
-countlengths = 0
 lengths = []
 
 with gzip.open(gffpath, 'rt') as fp:
 	for line in fp:
 		words = line.split()
 		if words[2] == feature: 
-			countlengths += 1 #count
 			beg = int(words[3])
 			end = int(words[4])
 			lengths.append(end - beg + 1)  
 
 # count 
-print("Count:", countlengths)
+print("Count:", len(lengths))
 
 # min, max
 def minmax(vals):
