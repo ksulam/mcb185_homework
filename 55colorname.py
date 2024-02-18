@@ -33,10 +33,10 @@ with open(colorfile) as fp:
 			colorvals.append(int(val)) 
 	
 		dtclist.append(dtc(colorvals, rgbinput)) #add dtc val to list for each color
-
+# now have a 2 lists: color names and dtc values
 	
-mini_index = dtclist.index(minimum(dtclist)) #return index of mini value
-print(colornames[mini_index]) #index of colors = index of mini  
+mini_index = dtclist.index(minimum(dtclist)) #return index of minimum dtc
+print(colornames[mini_index]) #index of colors and dtc are the same  
 
 
 
