@@ -27,13 +27,14 @@ with open(colorfile) as fp:
 		words = line.split()
 		colornames.append(words[0])#create list for each color name
 		
-		colorvals = [] #create list of RGB values for a single color
-		vals = words[2].split(",") #split RGB values from column 3 slice
-		for val in vals: 
-			colorvals.append(int(val)) 
-	
-		dtclist.append(dtc(colorvals, rgbinput)) #add dtc val to list for each color
-
+		red, green, blue = words[2].split(",")
+		red = int(red)
+		green = int(green)
+		blue = int(blue)
+		
+		distance = dtc((red, green, blue), rgbinput)
+		dtclist.append(distance)
+		
 # now have a 2 lists: color names and dtc values	
 mini_index = dtclist.index(minimum(dtclist)) #return index of minimum dtc
 print(colornames[mini_index]) #index of colors and dtc are the same  
@@ -45,12 +46,12 @@ print(colornames[mini_index]) #index of colors and dtc are the same
 """
 # alternative method
 
-red, green, blue = words[2].split(",")
-		red = int(red)
-		green = int(green)
-		blue = int(blue)
-		
-		distance = dtc((red, green, blue), rgbinput)
-		dtclist.append(distance)
+
+colorvals = [] #create list of RGB values for a single color
+		vals = words[2].split(",") #split RGB values from column 3 slice
+		for val in vals: 
+			colorvals.append(int(val)) 
+	
+		dtclist.append(dtc(colorvals, rgbinput)) #add dtc val to list for each color
 
   """
