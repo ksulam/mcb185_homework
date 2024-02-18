@@ -50,11 +50,11 @@ for i in range(rolls):
 	d3 = random.randint(1, 6)
 	d4 = random.randint(1, 6)
 
-	if d1 < d2 and d1 < d3 and d1 < d4: 
+	if d1 <= d2 and d1 <= d3 and d1 <= d4: 
 		score = score + d2 + d3 + d4
-	elif d2 < d1 and d2 < d3 and d2 < d4: 
+	elif d2 <= d1 and d2 <= d3 and d2 <= d4: 
 		score = score + d1 + d3 + d4
-	elif d3 < d1 and d3 < d2 and d3 < d4: 
+	elif d3 <=d1 and d3 <= d2 and d3 <= d4: 
 		score = score + d1 + d2 + d4
 	else: 
 		score = score + d1 + d2 + d3
