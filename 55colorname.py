@@ -33,14 +33,18 @@ with open(colorfile) as fp:
 			colorvals.append(int(val)) 
 	
 		dtclist.append(dtc(colorvals, rgbinput)) #add dtc val to list for each color
-# now have a 2 lists: color names and dtc values
-	
+
+# now have a 2 lists: color names and dtc values	
 mini_index = dtclist.index(minimum(dtclist)) #return index of minimum dtc
 print(colornames[mini_index]) #index of colors and dtc are the same  
 
 
 
+
+
 """
+# alternative method
+
 red, green, blue = words[2].split(",")
 		red = int(red)
 		green = int(green)
