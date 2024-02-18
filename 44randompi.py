@@ -1,4 +1,5 @@
 import random
+import math 
 
 insidecount = 0
 outsidecount = 0
