@@ -11,8 +11,8 @@ def shannon(a, t, c, g):
 
 	aprob = a / len(window)
 	tprob = t / len(window)
-	cprob = c / len(window) 
-	gprob = g / len(window) 	
+	cprob = c / len(window)
+	gprob = g / len(window)
 	
 	if aprob > 0: aexp = aprob * math.log2(aprob)
 	else: aexp = 0 
@@ -43,7 +43,7 @@ def masking(seq):
 		c = window.count('C')
 		g = window.count('G')
 		
-		entropy = shannon(a,t,c,g)
+		entropy = shannon(a, t, c, g)
 			
 		if  entropy < threshold:
 			maskedseq.append('N'*len(window))

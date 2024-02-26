@@ -24,15 +24,10 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 		leftnt = seq[i - 1] 
 		rightnt = seq[i + w - 1]
 
-		if leftnt == 'C': 
-			ccount -= 1
-		if leftnt == 'G':
-			gcount -= 1
-		if rightnt == 'C':
-			ccount += 1
-		if rightnt == 'G':
-			gcount += 1
-		 
+		if leftnt == 'C': ccount -= 1
+		if leftnt == 'G': gcount -= 1
+		if rightnt == 'C': ccount += 1
+		if rightnt == 'G': gcount += 1
 		gc_comp = (ccount + gcount) / w
 		gc_skew = (gcount - ccount) / (gcount + ccount)
 		print(f'{i}\t{gc_comp:.3f}\t{gc_skew:.3f}')

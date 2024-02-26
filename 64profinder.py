@@ -33,7 +33,7 @@ def profinder(seq, mini):
 
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
 	translatedstrand1 = rollingtranslation(seq) 
-	translatedstrand2 = rollingtranslation(dogma.revcomp(seq)) #translate revcomp strand
+	translatedstrand2 = rollingtranslation(dogma.revcomp(seq)) 
 	
 	#selecting proteins from each strand
 	finalproteins1 = profinder(translatedstrand1, mini) 
