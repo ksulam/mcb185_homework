@@ -20,11 +20,11 @@ def rollingtranslation(seq):
 # picking proteins that begin with M and are >= 100 length		
 def profinder(seq, mini):
 	proteins = []
-	aalist = seq.split('*')
+	aalist = seq.split('*') #split amino acids, removing last one
 	aalist.pop()
 	for aas in aalist:#splitting proteins based on stop codon 
 		start = aas.find('M')
-		if aas and len(aas[start:]) >= mini and start >= 0: 
+		if aas and len(aas[start:]) >= mini and start >= 0: #length from M is >= 100
 			proteins.append(aas[start:])
 			
 	return proteins 
@@ -53,56 +53,5 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 	
 	
 	
-	
-	
-"""
-for protein in finalproteins1:
-		print(f'>{defline[0:11]}-prot-{proteincount}')
-		print(protein)
-		#print(len(protein))
-		proteincount +=1
-	
-		
-finalproteins1 = profinder(translatedstrand1, mini)
-	finalproteins2 = profinder(translatedstrand2, mini)
-	finalproteins1.append(finalproteins2)
-	
-			
-
-finalproteins = profinder(seq, mini)
-	proteincount = 0 	
-		
-	for protein in finalproteins:
-		print(f'>{defline[0:11]}-prot-{proteincount}')
-		print(protein)
-		#print(len(protein))
-		proteincount +=1
-		
-	
-aaseq = dogma.translate(seq)
-print(aaseq)
-def profinder(seq, mini):
-	proteins = []
-	translatedseq = dogma.translate(seq)
-
-	    
-	for aas in translatedseq.split('*'):#splitting proteins based on stop codon 
-		if aas and aas[0] == 'M' and len(aas) >= mini: proteins.append(aas)
-	return proteins 
-
-print(profinder(seq, mini))
-
-	
-for defline, seq in mcb185.read_fasta(sys.argv[1]):
-	print(">",defline)
-	
-	finalproteins = profinder(seq, mini)
-	print(finalproteins)
-	
-	for x in finalproteins:
-		print(">",defline)
-		print(x)
-	
-"""
 
 	
