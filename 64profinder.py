@@ -29,8 +29,6 @@ def profinder(seq, mini):
 			
 	return proteins 
 
-
-
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
 	translatedstrand1 = rollingtranslation(seq) 
 	translatedstrand2 = rollingtranslation(dogma.revcomp(seq)) 
@@ -43,7 +41,6 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 	for protein in finalproteins2:	
 		finalproteins1.append(protein)
 	
-
 	proteincount = 0	
 	for protein in finalproteins1:
 		print(f'>{defline[0:11]}-prot-{proteincount}')
