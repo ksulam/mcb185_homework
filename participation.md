@@ -17,12 +17,9 @@ Participation
 | U | AC | VP | AQ | OC | SH | SA | CA | OA | Tot | Notes
 |:-:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:---:|:--------
 | 5 |  4 |    |    |  2 |    |  1 |    |    |  7  | 
-| 6 |
+| 6 |  4 |    |    | 2  |    | 1  |    |    |  7  | 
 | 7 | 
 | 8 | 
 | 9 |
 
 Notes:
-
-1. I helped another student fix their github account
-2. I stayed after class and got help from the professor
