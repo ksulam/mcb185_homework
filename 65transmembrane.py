@@ -34,24 +34,13 @@ def signalpep(seq):
 	wlen = 8
 	for i in range(len(seq) - wlen +1):
 		window = seq[i:i+wlen]
-		if avgkdhydro(window) >= 2.5 and window.find('P') == -1:
+		if avgkdhydro(window) >= 2.5 and window.find('P') == -1 and avgkdhydro(window) >= 2:
 			return True	
 	return False
-	
-
-# after 30 AA, need 11 aaseq with KD>=2
-def transmembrane(seq):
-	wlen = 11
-	for i in range(len(seq) -wlen +1):
-		window = seq[i:i+wlen]
-		if avgkdhydro(window) >= 2 and window.find('P') == -1:
-			return True
-	return False
-
 
 proteincount = 0
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
-	if signalpep(seq[:30]) and transmembrane(seq[30:]):
+	if signalpep(seq[:30]):
 		print(defline)
 		proteincount += 1
 		
