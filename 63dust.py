@@ -2,13 +2,12 @@ import sys
 import gzip
 import mcb185
 import math 
-
 w = int(sys.argv[2])
 threshold = float(sys.argv[3])
 seq = sys.argv[1]
+
 def shannon(a, t, c, g):
 	total = a + t + c + g
-
 	aprob = a / len(window)
 	tprob = t / len(window)
 	cprob = c / len(window)
@@ -26,7 +25,6 @@ def shannon(a, t, c, g):
 	if gprob > 0: gexp = gprob * math.log2(gprob)
 	else: gexp = 0
 	
- 
 	entropy = -(aexp + texp + cexp + gexp)
 	return entropy
 
@@ -34,7 +32,6 @@ def shannon(a, t, c, g):
 window = seq[:w]
 def masking(seq):
 	maskedseq = []
-
 	for i in range(0, len(seq) - w + 1, w):
 		window = seq[i:i+w]
 		#print(window)
@@ -42,7 +39,6 @@ def masking(seq):
 		t = window.count('T')
 		c = window.count('C')
 		g = window.count('G')
-		
 		entropy = shannon(a, t, c, g)
 			
 		if  entropy < threshold:
@@ -55,11 +51,9 @@ def masking(seq):
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
 	print(">",defline)
 	masked = masking(seq)
-	wrap_len = 60
 	lines = []
-	for i in range(0, len(masked), wrap_len):
-		lines.append(masked[i:i+wrap_len])
-
+	for i in range(0, len(masked), 60):
+		lines.append(masked[i:i+60])
 	#print out the wrapped lines
 	for line in lines:
 		print(line)
