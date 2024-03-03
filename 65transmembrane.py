@@ -30,17 +30,19 @@ def avgkdhydro(seq):
 
 
 # make sure first 30 AA has 8AA sequence with KD>=2.5
-def signalpep(seq):
-	wlen = 8
+def signalpep(seq, wlen):
 	for i in range(len(seq) - wlen +1):
 		window = seq[i:i+wlen]
-		if avgkdhydro(window) >= 2.5 and window.find('P') == -1 and avgkdhydro(window) >= 2:
+		if wlen == 8 and avgkdhydro(window) >= 2.5 and window.find('P') == -1:
 			return True	
+		if wlen == 11 and avgkdhydro(window) >= 2 and window.find('P') == -1:
+			return True
+
 	return False
 
 proteincount = 0
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
-	if signalpep(seq[:30]):
+	if signalpep(seq[:30], 8) and signalpep(seq[30:], 11):
 		print(defline)
 		proteincount += 1
 		
