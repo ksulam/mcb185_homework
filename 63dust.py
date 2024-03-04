@@ -29,9 +29,7 @@ def shannon(a, t, c, g):
 	entropy = -(aexp + texp + cexp + gexp)
 	return entropy
 
-
-
-for defline, seq in mcb185.read_fasta(sys.argv[1]):
+def masking(seq):
 	#print(len(seq))
 	maskedseq = list(seq) #making list copy of sequence
 	
@@ -48,10 +46,15 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 			for base in range(i, i + len(window)): #replace bases in window with N
 				maskedseq[base] = 'N'
 	
-	finalseq = ''.join(maskedseq) #joining list to string
+	return ''.join(maskedseq) #joining list to string
+
 	
+for defline, seq in mcb185.read_fasta(sys.argv[1]):
+	#print(masking(seq))
+
 	# printing defline and wrapped sequence
 	print(f'>{defline}')
+	finalseq = masking(seq)
 	lines = []
 	
 	for i in range (0, len(finalseq), 60):
@@ -62,7 +65,7 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 
 
 #double checking if lengths of OG seq and final is the same
-print(len(seq))
-print(len(finalseq))
+#print(len(seq))
+#print(len(finalseq))
 
 
