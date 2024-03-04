@@ -6,6 +6,7 @@ w = int(sys.argv[2])
 threshold = float(sys.argv[3])
 seq = sys.argv[1]
 
+# function calculating entropy
 def shannon(a, t, c, g):
 	total = a + t + c + g
 	aprob = a / total
@@ -29,41 +30,39 @@ def shannon(a, t, c, g):
 	return entropy
 
 
-def masking(seq):
-	maskedseq = []
-	maskcount = 0
-	for i in range(0, len(seq) - w + 1, 1):
-		
-		if maskcount <= 0: # when no N's
-			window = seq[i:i+w]
-			#print(window)
-			a = window.count('A')
-			t = window.count('T')
-			c = window.count('C')
-			g = window.count('G')
-			entropy = shannon(a, t, c, g)
-			
-			if entropy < threshold:
-				maskedseq.append('N'*len(window))
-				maskcount = w - 1 # must skip all newly added N's
-			else:
-				maskedseq.append(window[0])
-		else:
-			maskcount -= 1  # if N, keep skipping until no N
-	maskedseq.append(seq[len(seq) - 3:len(seq)]) # adding last 3 since too short 
-	return ''.join(maskedseq)
-
-
 
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
-	#print(len(seq))	
-	#print(len(masking(seq)))
-
+	#print(len(seq))
+	maskedseq = list(seq) #making list copy of sequence
+	
+	for i in range(0, len(seq) - w + 1, 1):	#stepping by 1 base	
+		window = seq[i:i+w] 
+		#print(window)
+		a = window.count('A')
+		t = window.count('T')
+		c = window.count('C')
+		g = window.count('G')
+		entropy = shannon(a, t, c, g) 
+			
+		if entropy < threshold: # if window entropy < threshold
+			for base in range(i, i + len(window)): #replace bases in window with N
+				maskedseq[base] = 'N'
+	
+	finalseq = ''.join(maskedseq) #joining list to string
+	
+	# printing defline and wrapped sequence
 	print(f'>{defline}')
-	masked = masking(seq)
 	lines = []
-	for i in range(0, len(masked), 60):
-		lines.append(masked[i:i+60])
-	#print out the wrapped lines
+	
+	for i in range (0, len(finalseq), 60):
+		lines.append(finalseq[i:i+60])
 	for line in lines:
 		print(line)
+
+
+
+#double checking if lengths of OG seq and final is the same
+print(len(seq))
+print(len(finalseq))
+
+
