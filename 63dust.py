@@ -8,10 +8,10 @@ seq = sys.argv[1]
 
 def shannon(a, t, c, g):
 	total = a + t + c + g
-	aprob = a / len(window)
-	tprob = t / len(window)
-	cprob = c / len(window)
-	gprob = g / len(window)
+	aprob = a / total
+	tprob = t / total
+	cprob = c / total
+	gprob = g / total
 	
 	if aprob > 0: aexp = aprob * math.log2(aprob)
 	else: aexp = 0 
@@ -29,27 +29,37 @@ def shannon(a, t, c, g):
 	return entropy
 
 
-window = seq[:w]
 def masking(seq):
 	maskedseq = []
-	for i in range(0, len(seq) - w + 1, w):
-		window = seq[i:i+w]
-		#print(window)
-		a = window.count('A')
-		t = window.count('T')
-		c = window.count('C')
-		g = window.count('G')
-		entropy = shannon(a, t, c, g)
+	maskcount = 0
+	for i in range(0, len(seq) - w + 1, 1):
+		
+		if maskcount <= 0: # when no N's
+			window = seq[i:i+w]
+			#print(window)
+			a = window.count('A')
+			t = window.count('T')
+			c = window.count('C')
+			g = window.count('G')
+			entropy = shannon(a, t, c, g)
 			
-		if  entropy < threshold:
-			maskedseq.append('N'*len(window))
+			if entropy < threshold:
+				maskedseq.append('N'*len(window))
+				maskcount = w - 1 # must skip all newly added N's
+			else:
+				maskedseq.append(window[0])
 		else:
-			maskedseq.append(window)
+			maskcount -= 1  # if N, keep skipping until no N
+	maskedseq.append(seq[len(seq) - 3:len(seq)]) # adding last 3 since too short 
 	return ''.join(maskedseq)
 
 
+
 for defline, seq in mcb185.read_fasta(sys.argv[1]):
-	print(">",defline)
+	#print(len(seq))	
+	#print(len(masking(seq)))
+
+	print(f'>{defline}')
 	masked = masking(seq)
 	lines = []
 	for i in range(0, len(masked), 60):
