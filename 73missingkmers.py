@@ -45,13 +45,4 @@ while zero == False:
 			print(kmer)
 	k += 1	
 		
-		
-
 	
-"""	
-		print(missingkmers)
-		if zerocount >= 1:
-			print('k=',k, )
-		kmerfill = False
-			
-"""
