@@ -33,7 +33,7 @@ def masking(seq):
 	#print(len(seq))
 	maskedseq = list(seq) #making list copy of sequence
 	
-	for i in range(0, len(seq) - w + 1, 1):	#stepping by 1 base	
+	for i in range(0, len(seq) - w + 1, 1): #stepping by 1 base 
 		window = seq[i:i+w] 
 		#print(window)
 		a = window.count('A')
@@ -45,7 +45,7 @@ def masking(seq):
 		if entropy < threshold: # if window entropy < threshold
 			for base in range(i, i + len(window)): #replace bases in window with N
 				maskedseq[base] = 'N'
-	
+				
 	return ''.join(maskedseq) #joining list to string
 
 	
@@ -57,7 +57,7 @@ for defline, seq in mcb185.read_fasta(sys.argv[1]):
 	finalseq = masking(seq)
 	lines = []
 	
-	for i in range (0, len(finalseq), 60):
+	for i in range(0, len(finalseq), 60):
 		lines.append(finalseq[i:i+60])
 	for line in lines:
 		print(line)
