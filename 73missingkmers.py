@@ -8,10 +8,8 @@ sequence = sys.argv[1]
 # finding all kmers in seq and revcomp seq with length 'k'
 k = 0
 zero = False
-while zero == False:
-	
-	#kmerfill = False
-	#while kmerfill == False:
+while zero == False: 
+
 	kcount = {}
 	
 	for defline, seq in mcb185.read_fasta(sequence):
@@ -37,9 +35,9 @@ while zero == False:
 				missingkmers.append(kmer)
 				#print("k=",k, kmer)
 				zerocount += 1
-				zero = True
+				zero = True #break loop
 
-	if zero:
+	if zero: # if missing kmer is found, print
 		print(f'{len(missingkmers)} missing kmers when k={k}')
 		for kmer in missingkmers:
 			print(kmer)
