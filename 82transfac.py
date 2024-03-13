@@ -4,13 +4,14 @@ import gzip
 import sys
 import re
 
-catalog = []
+catalog = [] #creating empty catalog of records for pwm
 
 with gzip.open(sys.argv[1], 'rt') as fp: #opening jaspar file
-	singlerecord = {} #creating new record for a single ID
+	singlerecord = {} #creating new record of pwm for a single ID
 	
 	for line in fp:  
-		lines = line.rstrip()
+		lines = line.rstrip() #remove characters from the end
+		#print(lines)
 		
 		if lines.startswith('ID'):
 			singlerecord['id']= lines.split()[1] #ID name
@@ -18,7 +19,7 @@ with gzip.open(sys.argv[1], 'rt') as fp: #opening jaspar file
 			
 		elif lines.startswith('PO'): #PWM data begins at this line
 			singlerecord['pwm'] = [] #empty pwm
-			print(singlerecord)
+			#print(singlerecord)
 	
 			
 		#line starting with # = contains row of PWM values	
