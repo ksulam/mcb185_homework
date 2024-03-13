@@ -39,6 +39,6 @@ with gzip.open(sys.argv[1], 'rt') as fp: #opening jaspar file
 
 #json format
 jsoncatalog = json.dumps(catalog, indent=2)
-#print(jsoncatalog)
+print(jsoncatalog)
 	
 
