@@ -37,10 +37,6 @@ for defline, seq in mcb185.read_fasta(fasta):
 	#save in dict
 	chromID = defline.split()[0]
 	chrom[chromID] = seq
-	
-#initialize pwm 
-	
-#print(don)
 
 #read all introns(features)
 introns = []
@@ -64,8 +60,9 @@ for i in range(6):
 	don.append({'A': 0, 'C': 0, 'G': 0, 'T': 0})
 
 acc = []  #acceptor seq
-for i in range(8):
+for i in range(7):
 	acc.append({'A': 0, 'C': 0, 'G': 0, 'T': 0})
+
 
 for c, b, e, n, s in introns:
 	if s == "+":
@@ -79,16 +76,12 @@ for c, b, e, n, s in introns:
 		#print(i, nt)
 		don[i][nt] += 1 #adding to count 
 	
-	aseq = intronseq[-8:]
+	aseq = intronseq[-7:]
 	for i, nt in enumerate(aseq):
 		acc[i][nt] += 1
 	
 		
 print_pwm(acc, 'ik001', 'ACC1', 'splice acceptor')
 print_pwm(don, 'ik002', 'DON', 'splice acceptor')
-		
-
-#get all seq of splice sites
-
 
 
