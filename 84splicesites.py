@@ -19,13 +19,14 @@ def print_pwm(pwm, ac, id, desc):
 	nts = 'ACGT'
 	print('PO', end='\t')
 	for nt in nts: 
-		print(" ", nt, end='') 
+		print(f'{nt:<8}', end='') 
 	print()
 	
 	for i, dictionary in enumerate(pwm):
 		print(i+1, end='\t')
 		for nt, n in dictionary.items():
-			print(int(n), end=' ')
+			print(f'{n:<8}', end=' ')
+   		
 		print()	
 	print('XX')	
 	print('//')
