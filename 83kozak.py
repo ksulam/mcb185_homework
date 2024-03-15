@@ -55,8 +55,8 @@ for start, end, strand in coord:
 			kozakcount[i][nt] += 1 #adding to count 
 	
 	elif "rev" in strand:
-		revstart = len(revcomp) - end + 1
-		krev = revcomp[revstart-10:revstart+4]
+		revstart = len(revcomp) - end + 1 #new start for revcomp
+		krev = revcomp[revstart-10:revstart+4] #preceding 10, then last 4
 		for i, nt in enumerate(krev):
 			kozakcount[i][nt] += 1 #adding to count
 
