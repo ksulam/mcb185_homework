@@ -83,6 +83,6 @@ for c, b, e, n, s in introns:
 	
 		
 print_pwm(acc, 'ik001', 'ACC1', 'splice acceptor')
-print_pwm(don, 'ik002', 'DON', 'splice acceptor')
+print_pwm(don, 'ik002', 'DON', 'splice donor')
 
 
