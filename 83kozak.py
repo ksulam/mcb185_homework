@@ -16,10 +16,10 @@ with gzip.open(file, 'rt') as fp:
 		
 		if 'CDS' in line and '..' in line:
 			#complement
-			b = line.find('(')
+			b = line.find('(') + 1
 			e = line.find(')')
 			if 'complement' in line: #for "-" strand 
-				comps = line[b+1:e]
+				comps = line[b:e]
 				start, end = comps.split("..")
 				coord.append([int(start), int(end), 'rev'])
 				#print(coord)
@@ -47,14 +47,16 @@ for i in range(0, 14):
 	kozakcount.append({'a': 0, 'c': 0, 'g': 0, 't': 0})
 	
 for start, end, strand in coord:
+	
 	if "fwd" in strand:
-		kfwd = seq[start-9:start+5] 
+		kfwd = seq[start-10:start+4] 
 
 		for i, nt in enumerate(kfwd):
 			kozakcount[i][nt] += 1 #adding to count 
 	
 	elif "rev" in strand:
-		krev = revcomp[end-6:end+8]
+		revstart = len(revcomp) - end + 1
+		krev = revcomp[revstart-10:revstart+4]
 		for i, nt in enumerate(krev):
 			kozakcount[i][nt] += 1 #adding to count
 
